@@ -4,6 +4,7 @@
 class Book
   attr_accessor :title, :chapters
   # include HelperMethods
+  # $chapters = []
 
   def initialize(title)
     # instance variable - this variable is accessible all throughout our class
@@ -14,14 +15,16 @@ class Book
 
 
   def add_chapter(str)
-    @cn = []
+
     @chapters.push(str)
 
   end
 
   def chapters
 
-    @chapters.select { |s| " "}
+    @chapters.each.with_index do |x, i|
+      puts "#{ (i+1) }. "  "#{ x }"
+    end
 
   end
 
@@ -35,7 +38,7 @@ book.add_chapter("My Awesome Chapter 1")
 book.add_chapter("My Awesome Chapter 2")
 book.add_chapter("My Awesome Chapter 3")
 
-puts book.chapters
+book.chapters
 # This should print:
 # Your book: My Awesome Book has 2 chapters:
 # 1. My Awesome Chapter 1
